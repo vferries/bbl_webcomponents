@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Dart - Polymer</title>
+		<title>WebComponents</title>
 
 		<meta name="description" content="Une toute petite présentation sur Dart">
 		<meta name="author" content="Vincent FERRIES">
@@ -36,214 +36,37 @@
 
 			<div class="slides">
 				<section>
-					<img style="border:0; background: none; box-shadow: none" src="images/dart-logo-wordmark.png" alt="Dart logo"></img>
-					<h3>Scalable Web App Engineering</h3>
+					<img style="border:0; background: none; box-shadow: none" src="images/webcomponents.svg" alt="Webcomponents logo"></img>
+					<h3>Web Components</h3>
 					<p>
 						<small>By <a href="http://blog.genigraph.fr/author/vferries/">Vincent FERRIES</a> / <a href="http://twitter.com/VincentFERRIES">@VincentFERRIES</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>First thing first...</h2>
+					<h1>ME, MYSELF AND I</h1>
 				</section>
 
-				<section>
-					<h2>What we will see today</h2>
+				<section fullscreen-img="images/coctail.jpg" style="background:rgba(0,0,0,0.5);border-radius:20px">
+					<h2>Todays coctail</h2>
 					<ul>
-						<li>A new language for web development</li>
-						<li>Construct both server and client parts</li>
-						<li>Have a glimpse at the future of the web</li>
+						<li>Vanilla Rhum</li>
+						<li>Syntactic Sugar</li>
+						<li>An once of code</li>
 					</ul>
-				</section>
-
-				<section>
-					<section>
-						<h2>Don't we allready have what we need?</h2>
-						<ul>
-							<li class="fragment">JavaScript!</li>
-							<li class="fragment">Even GWT / Vaadin to code in Java</li>
-							<li class="fragment">Applets !</li>
-							<li class="fragment">And finally...</li>
-							<li class="fragment">We've got JavaScript!</li>
-						</ul>
-					</section>
-					<section>
-						<h2>Let's talk about JavaScript!</h2>
-						<p>
-							<video controls src="images/wat.mov">Destroy all software</video>
-						</p>
-					</section>
-					<section>
-						<h2>Let's talk about GWT!</h2>
-						<pre><code data-trim class="java">
-public class Hello implements EntryPoint {
-
-  public void onModuleLoad() {
-    Button b = new Button("Click me", new ClickHandler() {
-      public void onClick(ClickEvent event) {
-        Window.alert("Hello, AJAX");
-      }
-    });
-
-    RootPanel.get().add(b);
-  }
-}
-					</code></pre>
-					</section>
-					<section>
-						<h2>Let's talk about Applets!</h2>
-						<img src="images/doyou.gif" class="fragment">
-					</section>
-				</section>
-
-				<section>
-					<img src="images/darty.png" style="border:0; background: none; box-shadow: none"></img>
-					<h2>Le contrat de confiance</h2>
-						<ul>
-							<li>A Language</li>
-							<li>Web Components (Polymer and Angular)</li>
-							<li>An editor (many actually)</li>
-							<li>A virtual machine</li>
-							<li>Pub</li>
-						</ul>
-				</section>
-
-				<section>
-					<h2>The Killer Feature</h2>
-					<img src="images/transformers.png" style="border:0; background: none; box-shadow: none"></img>
-					<p>dart2js</p>
-				</section>
-
-				<section>
-					<h2>Base concepts</h2>
-					<ul>
-						<li>Everything is an object</li>
-						<li>Optional Types</li>
-						<li>Production mode / Checked mode</li>
-						<li>No private keyword but _</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Some examples</h2>
-						<pre><code data-trim contenteditable class="dart">
-var bigInt = 1234567890234568972349642987923445778389768989647678576;
-
-String interpolated = "Amount: $bigInt";
-
-var complexInterpolation = "VAT: ${bigInt * 0.196}";
-
-double onePointOne = double.parse('1.1');
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Complex Types</h2>
-						<pre><code data-trim contenteditable class="dart">
-List&lt;int&gt; list = [1,2,3];
-
-var gifts = {
-	'first': 'Dart Vader',
-	'second': 'Dartagnan',
-	'fifth': 'The Dart Knight'
-};
-
-Map nobleGases = {2: 'helium', 10: 'neon', 18: 'argon'};
-
-var gifts = new Map();
-gifts['first'] = 'Alone in the Dart 2';
-gifts['second'] = 'The Dartist';
-assert(gifts.length == 2);
-						</code></pre>
-				</section>
-
-				<section>
-					<h2>Methods</h2>
-					<pre><code data-trim contenteditable class="dart">
-setOptions({String url, int port , bool useProxy}) {
-	// Do something with these params
-}
-
-setOptions(useProxy: true, port: 8080);
-
-String doSomething(String param, [List flags]) {
-	// Do something here
-}
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Classes</h2>
-					<pre><code data-trim contenteditable class="dart">
-class Point {
-	num x, y;
-	Point(this.x, this.y);
-	Point.zero() : x = 0, y = 0;
-	String toString() => '($x, $y)';
-}
-					</code></pre>
-					<pre><code data-trim contenteditable class="dart">
-Point pos = new Point(2, 3.4);
-String pStr = new Point.zero().toString();
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Functional programming</h2>
-					<pre><code data-trim contenteditable class="dart">
-list.forEach((x) => print(x));
-
-map.forEach((k, v) {
-	i++;
-	print('$i - $k = $v');
-});
-
-square(x) => x*x;
-list.map(square);
-
-list = ['Cap Gemini', 'Genigraph', 'Atos'];
-list.filter((name) => name.startsWith('G'));
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Builders are over...</h2>
-					<pre><code data-trim contenteditable class="dart">
-var myObject = new MyObject();
-myObject.setName("EclipseCon");
-myObject.setSize(42);
-myObject.callMethod(3);
-return myObject;
-
-return new MyObject()
-	..setName("EclipseCon")
-	..setSize(42)
-	..callMethod(3);
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>DOM Manipulation</h2>
-					<pre><code data-trim contenteditable class="dart">
-querySelector("#myId").classes.add("success");
-
-querySelectorAll("#myId li").forEach((el){
-	el.on.mouseOver.add("selected");
-	el.on.mouseOut.remove("selected");
-});
-					</code></pre>
-				</section>
-
-				<section fullscreen-img="images/aloneinthedark.gif">
-					<h1>Alone in the Dart</h1>
 				</section>
 
 				<section fullscreen-img="images/DeLorean_Launch.gif">
 				</section>
 
-				<section>
-					<h2>Good old time!</h2>
-					<img style="border:0; background: none; box-shadow: none" src="images/netscape.gif" alt="olf form in Netscape"></img>
+				<section fullscreen-img="images/bluescreen.png">
+				</section>
+
+				<section fullscreen-img="images/boot.gif">
+				  <audio data-autoplay src="sounds/startup.mp3"></audio>
+				</section>
+					
+				<section fullscreen-img="images/netscape.jpg">
 				</section>
 					
 				<section>
@@ -295,34 +118,28 @@ querySelectorAll("#myId li").forEach((el){
 					</select>
 				</section>
 
-				<section>
-					<img src="images/gmail.png">
+				<section fullscreen-img="images/gmail.png">
 				</section>
 
 				<section>
-					<pre><code data-trim contenteditable class="xml">
-&lt;e-mails&gt;
-  &lt;e-mail&gt;
-    &lt;subject&gt;Valar Morghulis&lt;/subject&gt;
-    &lt;sent&gt;2014-10-03&lt;/sent&gt;
-    &lt;summary&gt;Dracarys!&lt;/summary&gt;
-  &lt;/e-mail&gt;
-  &lt;e-mail&gt;
-    &lt;subject&gt;Reminder: Beware!&lt;/subject&gt;
-    &lt;sent&gt;2012-10-04&lt;/sent&gt;
-    &lt;summary&gt;The night is dark and full of terrors. &lt;/summary&gt;
-  &lt;/e-mail&gt;
-&lt;/e-mails&gt;
-&lt;hangouts&gt;
-  &lt;hangout with="arya.stark@gmail.com"&gt;
-    &lt;you&gt;What do we say to the God of death?&lt;/you&gt;
-    &lt;her&gt;Not today.&lt;/her&gt;
-  &lt;/hangout&gt;
-  &lt;hangout with="ned.stark@gmail.com"&gt;
-    &lt;him&gt;War was easier than daughters.&lt;/him&gt;
-  &lt;/hangout&gt;
-&lt;/hangouts&gt;
-					</code></pre>
+					<h2>Wouldn't it be better ?</h2>
+					<p><a href="http://html5-demos.appspot.com/hangouts">Hangouts demo</a></p>
+				</section>
+
+				<section fullscreen-img="images/vanilla.jpg">
+					<h1>Vanilla JS</h1>
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>
+				</section>
+
+				<section>
+					<h2>HTML Imports</h2>
+				</section>
+
+				<section>
+					<h2>Shadow DOM</h2>
 				</section>
 
 				<section>
