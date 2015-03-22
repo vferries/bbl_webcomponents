@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <template id="tpl">
+      <style scoped>
+          div {
+              color: blue;
+          }
+      </style>
+      <button id="bouton">Click me</button>
+      <div id="resultat"> </div>
+  </template>
+  <script>
+    (function() {
+      var myDoc = document.currentScript.ownerDocument;
+      var proto = Object.create(HTMLElement.prototype, {
+        createdCallback: { 
+          value: function() {
+            var template = myDoc.querySelector('#tpl'); 
+            var clone = document.importNode(template.content, true);
+            clone.getElementById('bouton').addEventListener('click', function() {
+              document.getElementById('resultat').innerText += "Bravo!\n";
+            }, false);
+            this.appendChild(clone);
+          }
+        }
+      });
+      document.registerElement('my-template', {
+        prototype: proto
+      });
+    })();
+  </script>
+
+  <my-template></my-template>
+</body>
+</html>
+

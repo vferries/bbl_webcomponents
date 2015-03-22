@@ -45,9 +45,10 @@
 
 				<section>
 					<h1>ME, MYSELF AND I</h1>
+					TODO : I speak for food
 				</section>
 
-				<section fullscreen-img="images/coctail.jpg" style="background:rgba(0,0,0,0.5);border-radius:20px">
+				<section fullscreen-img="images/coctail.jpg" class="grayBackground">
 					<h2>Todays coctail</h2>
 					<ul>
 						<li>Vanilla Aged Rhum</li>
@@ -160,8 +161,16 @@
 					</code></pre>
 				</section>
 
+				<section fullscreen-img="images/sewing_pattern.png" class="grayBackground">
+					<h2>HTML Templates</h2>
+					<b>template</b> (n) - A document or file having a preset format, used as a starting point for a particular application so that the format <b>does not have to be recreated each time</b> it is used.
+				</section>
+
 				<section>
 					<h2>HTML Templates</h2>
+					<code><pre>
+						var clone = document.importNode(template.content, true);
+					</pre></code>
 				</section>
 
 				<section>
@@ -170,6 +179,24 @@
 
 				<section>
 					<h2>Shadow DOM</h2>
+					var myDoc = document.currentScript.ownerDocument;
+					Vidéo
+					Fonctionnement de base
+					Encapsulation
+					Nesting (multiples shadow roots et insertion points)
+				</section>
+
+				<section>
+					<h2>Support des navigateurs</h2>
+					<ul>
+						<li class="fragment">Chrome et Opera -> tout OK</li>
+						<li class="fragment">Firefox -> OK avec flag dev, imports en pause</li>
+						<li class="fragment">Opera -> Juste templates</li>
+						<li class="fragment">IE -> ¯\_(ツ)_/¯</li>
+					</ul>
+				</section>
+
+				<section fullscreen-img="images/polyfill.jpg">
 				</section>
 
 				<section>
@@ -251,6 +278,10 @@ class ClickCounterElement extends PolymerElement {
 					In the settings of Chrome Dev Tools.
 
 					<pre><code><content select=".email"></content></code></pre>
+				</section>
+
+				<section fullscreen-img="images/skydive.jpg">
+					<h2>Prêts pour le grand saut ?</h2>
 				</section>
 
 				<section>
