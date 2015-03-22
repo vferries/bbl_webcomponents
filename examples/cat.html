@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat</title>
+	<script>
+	var MCatProto = Object.create(HTMLElement.prototype);
+
+	MCatProto.createdCallback = function() {
+  		this.innerHTML = '&#128570;';
+  		this.addEventListener('click', function(e) {
+    		alert('Miaou!');
+  		});
+	};
+
+	MCatProto.attachedCallback = function() {
+	};
+
+	MCatProto.detachedCallback = function() {
+	};
+
+	MCatProto.attributeChangedCallback = function(attrName, oldVal, newVal) {
+	};
+
+	var MCat = document.registerElement('m-cat', {
+		prototype: MCatProto
+	});
+	</script>
+</head>
+<body>
+	<m-cat></m-cat>
+</body>
+</html>
+

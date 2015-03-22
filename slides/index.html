@@ -50,9 +50,9 @@
 				<section fullscreen-img="images/coctail.jpg" style="background:rgba(0,0,0,0.5);border-radius:20px">
 					<h2>Todays coctail</h2>
 					<ul>
-						<li>Vanilla Rhum</li>
-						<li>Syntactic Sugar</li>
+						<li>Vanilla Aged Rhum</li>
 						<li>An once of code</li>
+						<li>Syntactic Sugar</li>
 					</ul>
 				</section>
 
@@ -127,11 +127,41 @@
 				</section>
 
 				<section fullscreen-img="images/vanilla.jpg">
-					<h1>Vanilla JS</h1>
 				</section>
 
 				<section>
 					<h2>Custom Elements</h2>
+					<h3>Defining a new element</h3>
+					<pre><code>
+					var Proto = Object.create(HTMLElement.prototype);
+					registerElement('a-name', Proto);
+					</code></pre>
+					<br>
+					&#128570;
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>
+					<h3>Extending an element</h3>
+					<pre><code>
+					document.createElement('button', 'mega-button');
+
+					&lt;button is="mega-button"&gt;&lt;/button&gt;
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>
+					<h3>What about HTMLElementElement ?</h3>
+					<pre><code>
+					&lt;element name="my-element"&gt;
+						...
+					&lt;/element&gt;
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>HTML Templates</h2>
 				</section>
 
 				<section>
