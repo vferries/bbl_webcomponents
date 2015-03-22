@@ -168,22 +168,77 @@
 
 				<section>
 					<h2>HTML Templates</h2>
-					<code><pre>
+					<pre><code>
+						&lt;template&gt;
+							...
+						&lt;/template&gt;
+
+
+						var template = document.querySelector('#tpl');
 						var clone = document.importNode(template.content, true);
-					</pre></code>
+					</code></pre>
 				</section>
 
 				<section>
-					<h2>HTML Imports</h2>
+					<h2>HTML Templates</h2>
+					<ul>
+						<li>Inert code</li>
+						<li>CSS scoping</li>
+						<li>Not considered in the document for getElementById and querySelector</li>
+					</ul>
+				</section>
+
+				<section fullscreen-img="images/shadow.jpg">
+					<h2>Shadow DOM</h2>
 				</section>
 
 				<section>
 					<h2>Shadow DOM</h2>
-					var myDoc = document.currentScript.ownerDocument;
-					Vidéo
-					Fonctionnement de base
-					Encapsulation
-					Nesting (multiples shadow roots et insertion points)
+					<p>
+						<video controls src="images/wat.mov">Destroy all software</video>
+					</p>
+				</section>
+
+				<section>
+					<h2>Shadow DOM</h2>
+<pre><code>var shadow = document.querySelector('#whatever').createShadowRoot();
+
+shadow.appendChild(something);</code></pre>
+				</section>
+
+				<section>
+					<h2>Shadow DOM</h2>
+					<ul>
+						<li>pile shadow DOMs</li>
+						<li>unpile them with the &lt;shadow&gt; element.</li>
+						<li>encapsulate css styling</li>
+						<li>style parent elements with :host</li>
+						<li>style inside shadow DOMs with /deep/</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Shadow DOM</h2>
+					CSS Variables
+<pre><code>
+button {
+  color: var(--button-text-color, pink); /* default color will be pink */
+  font-family: var(--button-font);
+}
+
+#host {
+  --button-text-color: green;
+  --button-font: "Comic Sans MS", "Comic Sans", cursive;
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h2>HTML Imports</h2>
+<pre><code>&lt;link rel="import" href="import.html"&gt;
+
+var myDoc = document.currentScript.ownerDocument;
+</code></pre>
 				</section>
 
 				<section>
@@ -274,10 +329,24 @@ class ClickCounterElement extends PolymerElement {
 				</section>
 
 				<section>
-					<h2>Shadow DOM</h2>
-					In the settings of Chrome Dev Tools.
+				<h1>x-tag</h1>
+<pre><code>
+xtag.register('x-accordion', {
+  extends: 'div',
+  lifecycle:{
+    created: function(){
+    },
+  },
+  methods: {
+    nextToggler: function(){
+    }
+  }
+});
+</code></pre>
+				</section>
 
-					<pre><code><content select=".email"></content></code></pre>
+				<section>
+					<img style="border:0; background: none; box-shadow: none" src="images/bosonic.png">
 				</section>
 
 				<section fullscreen-img="images/skydive.jpg">

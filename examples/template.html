@@ -10,8 +10,8 @@
               color: blue;
           }
       </style>
-      <button id="bouton">Click me</button>
-      <div id="resultat"> </div>
+      <button id="button">Click me</button>
+      <div id="result"> </div>
   </template>
   <script>
     (function() {
@@ -21,8 +21,9 @@
           value: function() {
             var template = myDoc.querySelector('#tpl'); 
             var clone = document.importNode(template.content, true);
-            clone.getElementById('bouton').addEventListener('click', function() {
-              document.getElementById('resultat').innerText += "Bravo!\n";
+            var div = clone.getElementById('result');
+            clone.getElementById('button').addEventListener('click', function() {
+              div.innerText += "Congrats!\n";
             }, false);
             this.appendChild(clone);
           }
@@ -34,6 +35,7 @@
     })();
   </script>
 
+  <my-template></my-template>
   <my-template></my-template>
 </body>
 </html>
