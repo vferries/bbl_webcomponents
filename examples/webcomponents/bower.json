@@ -1,0 +1,26 @@
+{
+  "name": "webcomponents",
+  "version": "1.0.0",
+  "main": "style.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components/",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "vferries <vincent.ferries@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.0",
+    "x-tag-core": "~0.9.9",
+    "x-tag-flipbox": "~0.2.8",
+    "google-map": "GoogleWebComponents/google-map#~0.3.2"
+  }
+}
