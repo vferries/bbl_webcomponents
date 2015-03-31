@@ -267,29 +267,32 @@ var myDoc = document.currentScript.ownerDocument;
 				</section>
 
 				<section>
-					<h2>Defining a Custom Element</h2>
-					<pre><code>
-<polymer-element name="hello-you" noscript>
-  <template>
-    <p>Hello EclipseCon France!</p>
-  </template>
-</polymer-element>
-					</code></pre>
+					<h2>Declaration / Registration</h2>
+<pre><code>
+&lt;polymer-element name="tag-name" constructor="TagName" class="forall" customattr&gt;
+  &lt;template&gt;
+    &lt;!-- shadow DOM here --&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer({
+      // properties and methods here
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;
+</code></pre>
 				</section>
 
 				<section>
 					<h2>Using Custom Element</h2>
-					<p>In the head section</p>
 					<pre><code>
-  &lt;link rel="import" href="hello_world.html"&gt;
-  &lt;script type="application/dart"&gt;
-  	export 'package:polymer/init.dart';
-  &lt;/script&gt;
-  &lt;script src="packages/browser/dart.js"&gt;&lt;/script&gt;
-</code></pre>
-					<p>Simply use it</p>
-					<pre><code>
-&lt;hello-you&gt;&lt;/hello-you&gt;
+&lt;!-- Polyfill Web Components support for older browsers --&gt;
+&lt;script src="components/webcomponentsjs/webcomponents.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Import element --&gt;
+&lt;link rel="import" href="google-map.html"&gt;
+
+&lt;!-- Use element --&gt;
+&lt;google-map latitude="37.790" longitude="-122.390"&gt;&lt;/google-map&gt;
 					</code></pre>
 				</section>
 
@@ -297,32 +300,28 @@ var myDoc = document.currentScript.ownerDocument;
 					<h2>Data binding</h2>
 					<h3>In the template</h3>
 <pre><code>
-&lt;polymer-element name="click-counter"&gt;
+&lt;polymer-element name="name-tag"&gt;
   &lt;template&gt;
-    &lt;button on-click="{{increment}}"&gt;Click Me&lt;/button&gt;
-    &lt;p&gt;You clicked the button {{count}} times.&lt;/p&gt;
+    This is &lt;b&gt;{{owner}}&lt;/b&gt;'s name-tag element.
   &lt;/template&gt;
-  &lt;script type="application/dart" src="click_counter.dart"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    Polymer('name-tag', {
+      // initialize the element's model
+      ready: function() {
+        this.owner = 'Vincent';
+      }
+    });
+  &lt;/script&gt;
 &lt;/polymer-element&gt;
 </code></pre>
 				</section>
 				<section>
 					<h2>Data binding</h2>
-					<h3>In the script</h3>
+					<h3>Repeat</h3>
 <pre><code>
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-
-@CustomTag('click-counter')
-class ClickCounterElement extends PolymerElement {
-  @observable int count = 0;
-
-  ClickCounterElement.created() : super.created();
-
-  void increment(Event e, var detail, Node target) {
-    count += 1;
-  }
-}
+&lt;template repeat="{{s in salutations}}"&gt;
+  &lt;li&gt;{{s.what}}: &lt;input type="text" value="{{s.who}}"&gt;&lt;/li&gt;
+&lt;/template&gt;
 </code></pre>
 				</section>
 
